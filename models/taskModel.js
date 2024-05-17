@@ -20,13 +20,8 @@ const TaskSchema =mongoes.Schema({
         type: mongoes.Schema.ObjectId,
         ref: 'users',
         required: [true, 'Review must belong to a user']
-      }     
-},
-{
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true }
-  }
-) ;
+      }    
+});
 
 
 

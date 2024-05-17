@@ -12,6 +12,9 @@ router
 .get(taskController.getAlltask);
 
 router
+.route("/:id")
+.patch(taskController.updatetask)
+router
 .route("/mytasks")
 .get(taskController.mytasks);
 
