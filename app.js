@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const app=express();
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
 const taskRouter =require("../Tasks/routes/taskRoutes")
 const userRouter =require("../Tasks/routes/userRouter")
 const globalErrorHandler = require('./controllers/errorController');
@@ -13,10 +15,10 @@ if (process.env.NODE_ENV === 'development') {
 
 
   //Data sanitization against NoSQL query injection
-//app.use(mongoSanitize());
+app.use(mongoSanitize());
 
 // Data sanitization against XSS
-//app.use(xss());
+app.use(xss());
 
   app.use(express.json());
 

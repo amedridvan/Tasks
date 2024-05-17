@@ -19,9 +19,8 @@ exports .getAlltask =catchAsync (async (req,res,next) =>{
         return next(new AppError ("no users founded " ,404));
     }
     res.status(200).json( {
-        
+        count : task.length ,
         data :{
-            count :task.length ,
             task 
         }
         
@@ -49,7 +48,7 @@ exports.updatetask = catchAsync (async (req,res,next) => {
      if (!task) {
         return next (new AppError("any tasks with this id ") ,404) ;
      }  
-
+     await task.save(); 
      res.status(200) .json({
         data :{
             task
@@ -64,8 +63,7 @@ exports.deletetask = catchAsync (async (req,res,next) => {
      }  
 
      res.status(200) .json({
-        data :{
-            task
-        }
+        message : "deleting done " ,
+        data  : null
      })
 })

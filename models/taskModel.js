@@ -20,10 +20,17 @@ const TaskSchema =mongoes.Schema({
         type: mongoes.Schema.ObjectId,
         ref: 'users',
         required: [true, 'Review must belong to a user']
-      }    
+      } ,
+      DateOfUpdate  :Date 
+      
+         
+        
 });
 
-
+TaskSchema.pre("save",function (next) {
+    this.DateOfUpdate =Date.now()-1000  ;
+    next() ;
+})
 
 
 const Task = mongoes.model("tasks",TaskSchema);
