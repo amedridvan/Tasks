@@ -3,10 +3,10 @@ const morgan = require('morgan');
 const app=express();
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
-const taskRouter =require("../Tasks/routes/taskRoutes")
-const userRouter =require("../Tasks/routes/userRouter")
+const taskRouter =require("./routes/taskRoutes")
+const userRouter =require("./routes/userRouter")
 const globalErrorHandler = require('./controllers/errorController');
-const AppError = require("../Tasks/utils/appError");
+const AppError = require("../server/utils/appError");
 
 // 1) MIDDLEWARES
 if (process.env.NODE_ENV === 'development') {
