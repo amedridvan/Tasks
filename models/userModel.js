@@ -48,7 +48,7 @@ const UserSchema =mongoes.Schema({
         default: 'user'
       },
       
-     
+     passwordChangedAt : Date
 });
 
 UserSchema.pre('save', async function(next) {
@@ -71,5 +71,11 @@ UserSchema.methods.correctPassword = async function(
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
+UserSchema.pre('save', function(next) {
+  if (!this.isModified('password') || this.isNew) return next();
+
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
 const User= mongoes.model ("users",UserSchema); 
 module.exports =User ;
