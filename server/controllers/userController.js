@@ -36,7 +36,7 @@ exports.login =catchAsync (async (req,res,next) => {
 // email validate , password validate , 
 
  const { email, password } = req.body;
-
+console.log(email ,password)
   // 1) Check if email and password exist
   if (!email || !password) {
     return next(new AppError('Please provide email and password!', 400));
@@ -55,7 +55,8 @@ exports.login =catchAsync (async (req,res,next) => {
   const token = jwt.sign( { id :user._id}, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN
   })
- res.status(200) .json({
+ res.status(200).json({
+  status :"success" ,
     token :token ,
     data :{
         user

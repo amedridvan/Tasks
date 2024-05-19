@@ -7,13 +7,13 @@ const taskRouter =require("./routes/taskRoutes")
 const userRouter =require("./routes/userRouter")
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require("../server/utils/appError");
-
+const cors = require("cors");
 // 1) MIDDLEWARES
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
   }
 
-
+  app.use(cors());
   //Data sanitization against NoSQL query injection
 app.use(mongoSanitize());
 

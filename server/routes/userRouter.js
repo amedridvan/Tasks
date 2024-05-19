@@ -4,10 +4,13 @@ const userController=require ("../controllers/userController.js") ;
 
 router
 .route("/")
-.post(userController.signup)
 .get(userController.getAllusers)
 .patch(userController.updateWithLogin)
 
+
+router
+.route("/siginup")
+.post(userController.signup)
 router
 .route("/resetpassword")
 .patch(userController.forgetpassword )
