@@ -1,15 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/home"
-import Home1 from "./pages/home1"
-import Login from "./pages/login"
+//import Forget2  from "./Component/Login/forget"
+import SignUp from "./Component/Login/SignUp"
+import Login from "./Component/Login/login"
+import A11 from './Component/Login/updatePassword'
+import Home  from "./Component/Home/Home"
 function App() {
   return (  
     <BrowserRouter >
    <Routes>
     <Route >
-    <Route path="/" element ={<Login />} />
-    <Route path="/h1" element={<Home  /> }  />
-    <Route path="/h2" element={<Home1  /> }  />
+    <Route path="/" element ={<Login  />} />
+    <Route path="/Signup" element={<SignUp  /> }  />
+    <Route path="/Home" element={<Home   /> }  />
+    {/*
+    <Route path="/forgetpassword" element={<Forget2  /> }  />
+    */}
+    <Route path="/UpdatePassword" element= {<A11 />} />
     </Route>
    </Routes>
     </BrowserRouter>

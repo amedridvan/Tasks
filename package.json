@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-hook-form": "^7.51.4",
-    "sweetalert2": "^11.11.0"
-  }
-}

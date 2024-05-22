@@ -5,7 +5,7 @@ const userController=require ("../controllers/userController.js") ;
 router
 .route("/")
 .get(userController.getAllusers)
-.patch(userController.updateWithLogin)
+.patch( userController.forgetpassword,userController.updateWithLogin)
 
 
 router

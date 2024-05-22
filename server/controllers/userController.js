@@ -75,24 +75,18 @@ exports.forgetpassword = catchAsync( async (req,res,next) => {
   return next (new AppError ("no user with this email adress ",404))
  }
   
- res.status(200) .json({
-  message :"You will be directed to the page to set a new password" ,
-  email :user.email
- })
-
+  res.status(200) .json({
+    message :"You will be directed to the page to set a new password" ,
+    email :user.email
+  })
 })
 
 exports.updateWithoutLogin  =catchAsync (async (req,res,next) => {
  // 1) Get user from collection
  const user = await User.findOne({email:req.body.email}).select('+password');
 if(!user){
-  return next(new AppError("ahmed",404))
+return next(new AppError("no user founded ",404))
 }
-const a= await user.correctPassword(req.body.passwordCurrent,user.password)
- // 2) Check if POSTed current password is correct
- if (!a) {
-   return next(new AppError('Your current password is wrong.', 401));
- }
    // 3) If so, update password
    user.password = req.body.password;
    user.passwordConfirm = req.body.passwordConfirm;
