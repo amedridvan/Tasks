@@ -9,7 +9,7 @@ const TaskSchema =mongoes.Schema({
     } ,
     createdAt : {
         type :Date ,
-        default :Date.now ()
+        default :Date.now ('MM/DD/YYYY')
     }, 
     state :{
         type :String ,

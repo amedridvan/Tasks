@@ -15,9 +15,8 @@ router
 .route("/:id")
 .patch(taskController.updatetask)
 .delete(taskController.deletetask)
-router
-.route("/mytasks")
 .get(taskController.mytasks);
+
 
 
 module.exports=router;

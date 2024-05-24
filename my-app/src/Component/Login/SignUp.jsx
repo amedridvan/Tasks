@@ -67,11 +67,9 @@ function App() {
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" action=""  method="post" onSubmit={handleSubmit(onSubmit)} >
             <div >
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Firstname
-                  </label>
                   <div className="mt-1">
                   <input
+                  placeholder="Firstname"
                   {...register("Firstname",{required :true ,min:8 ,max:100})}
                     id="Firstname"
                     name="Firstname"
@@ -83,11 +81,8 @@ function App() {
                 </div>
                 </div>
             <div className="mt-2">
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Lastname
-                  </label>
                   <div className="mt-2">
-                  <input
+                  <input placeholder="Lastname"
                   {...register("Lastname",{required :true ,min:8 ,max:100})}
                     id="Lastname"
                     name="Lastname"
@@ -100,11 +95,9 @@ function App() {
                 </div>
 
               <div className="mt-2">
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                  Email address
-                </label>
-                <div className="mt-1">
-                  <input
+                
+                <div className="mt-1 ">
+                  <input placeholder=" Email "
                   {...register ("email")}
                     id="email"
                     name="email"
@@ -117,11 +110,8 @@ function App() {
               </div>
   
                 <div className="mt-2">
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                    Password
-                  </label>
                   <div className="mt-1">
-                  <input
+                  <input placeholder="Password"
                   {...register("password",{required :true ,min:8 ,max:100})}
                     id="password"
                     name="password"
@@ -134,11 +124,8 @@ function App() {
                 </div>
 
                 <div className="mt-2">
-                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                 Confirm Password  
-                  </label>
                   <div className="mt-1  ">
-                  <input
+                  <input placeholder="Confirm Password "
                   {...register("passwordConfirm",{required :true ,min:8 ,max:100})}
                     id="passwordConfirm"
                     name="passwordConfirm"

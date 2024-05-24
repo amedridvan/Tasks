@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import {useStore} from "../Home/Global";
+import { useState } from "react";
 
 
 export default function Login() {
   const { register ,handleSubmit} = useForm()
   const navigate = useNavigate(); 
 const id2 =useStore(st =>st.updateid)
-
 
   const onSubmit =async (formdata) => {
     console.log(formdata)
@@ -25,7 +25,7 @@ const id2 =useStore(st =>st.updateid)
       if(res.status="success"){
         console.log("login is done ");
         sessionStorage.setItem("id",res.data.data.user._id)
-        id2(res.data.data.user._id) ;
+        id2(res.data.data.user._id) 
        navigate('/Home')
       }
     }
@@ -38,7 +38,6 @@ const id2 =useStore(st =>st.updateid)
       });
     }
   }
-   
     return (
       <>
     {/*
@@ -103,7 +102,7 @@ const id2 =useStore(st =>st.updateid)
               <div>
                 <button
                   type="submit" 
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="flex w-full justify-center rounded-md  bg-slate-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Sign in
                 </button>

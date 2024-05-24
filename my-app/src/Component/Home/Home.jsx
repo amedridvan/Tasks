@@ -1,24 +1,41 @@
-import { useForm } from "react-hook-form"
-import { json, useNavigate ,useParams} from 'react-router-dom';
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import axios, { formToJSON } from 'axios'
 import { useStore } from "../Home/Global";
-
-
+import Menu from './menu'
+import Footer from "./Footer";
+import {  useEffect, useState } from "react";
+import Container from './Container'
 
 export default  function Home (){
     const id =useStore(st=> st.id)
-    
-function on() {
-   
-console.log(sessionStorage.getItem('id'))
-console.log(id)
-}
+    const [da , setdata] =useState ({}) ;
+    console.log(sessionStorage.getItem('id'))
+    console.log(id)
+
+    useEffect (()=>{
+        const getdata =async ()=>{
+          try{  
+        const res = await axios({
+            method: 'GET',
+            url: `http://127.0.0.1:8000/api/v1/task/${sessionStorage.getItem("id")}`
+          })
+          setdata(res.data.data.task)
+          console.log(da)
+        }catch(err){
+           console.log(err)
+        }
+    }
+   getdata();
+    },[])
+       
 return (
 <>
-<button className="" type="submit" onClick={on}> 
-    add
-</button>
+<Menu />
+<div className="flex flex-col  items-center ">
+   
+   <Container data={da} />
+<Footer />
+
+</div>
     </>
 )
 }

@@ -1,9 +1,8 @@
 import  {create }  from "zustand";
 
 export  const useStore =create((set) =>({
-    id :"12312" ,
+    id :"" ,
     updateid: (newBears) => set({ id: newBears }),
-
 })) 
 
 
