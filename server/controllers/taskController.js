@@ -37,7 +37,6 @@ if(!task){
 }
 res.status(200) .json({
     data :{
-        message :"s1",
         count :task.length ,
         task
     }

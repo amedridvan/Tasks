@@ -8,32 +8,14 @@ import Denmeme from '../Deneme';
 
 export default  function Home (){
     const id =useStore(st=> st.id)
-    const [da , setdata] =useState ({}) ;
-    console.log(sessionStorage.getItem('id'))
-    console.log(id)
 
-    useEffect (()=>{
-        const getdata =async ()=>{
-          try{  
-        const res = await axios({
-            method: 'GET',
-            url: `http://127.0.0.1:8000/api/v1/task/${sessionStorage.getItem("id")}`
-          })
-          setdata(res.data.data.task)
-          console.log(da)
-        }catch(err){
-           console.log(err)
-        }
-    }
-   getdata();
-    },[])
-       
+   
 return (
 <>
 <Menu />
 <div className=' h-auto'>
   
- <Denmeme />
+ <Denmeme   />
 <Footer />
 </div>
     </>

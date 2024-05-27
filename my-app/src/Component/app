@@ -1,61 +1,28 @@
-{ 
-    edit ==false? 
-                    
-                    <>
-                    <div className=" bg-[#414040] flex justify-between items-center  p-[25px] py-[10px] mb-[10px]  shadow-2xl ">
-                        <div>
-                            <h3 className=" text-[25px] font-bold m-0 text-[#00E67A] ">updata from main</h3>
-                            <p className=" text-[14px] mt-[8px] text-[#A1A1A1]  ">i will upating from main at 9:00</p>
-                        </div>
-                        <div className=" ">
-                              <AiOutlineDelete
-                                className="text-[35px] cursor-pointer hover:text-red-600 "
-        
-                                title="Delete?"
-                              />
-                              <BsCheckLg
-                                className=" text-[25px] ml-[10px]   text-[#00E67A] cursor-pointer hover:text-[#04A96A] "
-                                
-                                title="Complete?"
-                              />
-                              <AiOutlineEdit  
-                               className=" text-[25px] ml-[10px]   text-[#00E67A] cursor-pointer hover:text-[#04A96A] "
-                                onClick={() =>setEdit(true)}
-                                title="Edit?" />
-                            </div>
-                    </div>
-                    </> 
-                    :
-                    <>
-                    <div className=" bg-[#414040] p-[10px] flex flex-col  ">
-                        <input type="text" className=" border-solid border-2 rounded-sm m-[5px]   " />
-                        <textarea name="" id="" className=" border-solid border-2 rounded-sm m-[5px]   "></textarea>
-                    </div>
-                    <button onClick={()=> setEdit(false) } className=" mx-auto p-[10px] text-[16px]  w-fit  ">
-                        update
-                        
-                    </button>
-                    </>
+ {active=="Inprocess"? 
+             <>
+             {a.map((item => {
+                if(item==edit){
+                    return(
+                        <>
+                         <div key={item} className=" bg-[#414040] p-[10px] flex flex-col  ">
+                                       <input  onChange={(e)=>handleUpdateTitle(e.target.value)}   type="text" className=" border-solid border-2 rounded-sm m-[5px] text-black pl-4" />
+                                       
+                                       <textarea   onChange={(e)=>handleUpdatedes(e.target.value)} name="" id="" className=" border-solid border-2 rounded-sm m-[5px] pl-4 text-black "></textarea>        
+                                   <button onClick={()=> updatetask(item ,title ,des) } className=" mx-auto p-[10px] text-[16px]  w-fit bg-green-600 rounded-full mt-2 capitalize hover:bg-yellow-800  ">
+                                       update
+                                       
+                                   </button>
+                                   </div> 
+                        </>
+                    )
                 }
-                
-
-
-
-
-                {active =="Done"?  
-                <>
-                <div>ahmed2</div>
-                </> 
-                : <></>}
-                 
-                 {active =="Inprocess"?  
-                        <>
-                        {edit==false ? 
-                        <>
-                        <div className=" bg-[#414040] flex justify-between items-center  p-[25px] py-[10px] mb-[10px]  shadow-2xl ">
+                else{
+                  return (
+                    <>
+                        <div key={item} className=" bg-[#414040] flex justify-between items-center  p-[25px] py-[10px] mb-[10px]  shadow-2xl ">
                             <div>
-                                <h3 className=" text-[25px] font-bold m-0 text-[#00E67A] ">updata from main</h3>
-                                <p className=" text-[14px] mt-[8px] text-[#A1A1A1]  ">i will upating from main at 9:00</p>
+                                <h3 className=" text-[25px] font-bold m-0 text-[#00E67A] ">{item.title}</h3>
+                                <p className=" text-[14px] mt-[8px] text-[#A1A1A1]  ">{item.Description}</p>
                             </div>
                             <div className=" ">
                                   <AiOutlineDelete
@@ -70,26 +37,21 @@
                                   />
                                   <AiOutlineEdit  
                                    className=" text-[25px] ml-[10px]   text-[#00E67A] cursor-pointer hover:text-[#04A96A] "
-                                    onClick={() =>setEdit(true)}
+                                    onClick={() =>setEdit(item)}
                                     title="Edit?" />
                                 </div>
+                                
                         </div> 
-                        </> 
-                        : 
-                        <>
-                        <div>
-                        <div className=" bg-[#414040] p-[10px] flex flex-col  ">
-                            <input type="text" className=" border-solid border-2 rounded-sm m-[5px]   " />
-                            <textarea name="" id="" className=" border-solid border-2 rounded-sm m-[5px]   "></textarea>
-                        </div>
-                        <button onClick={()=> setEdit(false) } className=" mx-auto p-[10px] text-[16px]  w-fit  ">
-                            update
-                            
-                        </button>
-                        </div>
-                        </>
-                            }
-                        
-                : 
-                <></>}
-                    </> 
+                    </>
+                  )
+                }
+             }))}
+
+
+                
+
+                
+                 </> 
+               
+                :
+            " " }

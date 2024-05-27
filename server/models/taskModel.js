@@ -7,13 +7,17 @@ const TaskSchema =mongoes.Schema({
         required : [true ,"A task must have title"] ,
         type :String ,
     } ,
+    Description :{
+   type:String  ,
+   required : [true ,"A task must have Description "]
+    }  ,
     createdAt : {
         type :Date ,
         default :Date.now ('MM/DD/YYYY')
     }, 
     state :{
         type :String ,
-        enum : ["Todo", "in-progress", "done"] ,
+        enum : ["Todo", "Inprocess", "Done"] ,
         default: 'Todo'
     } ,
     user: {

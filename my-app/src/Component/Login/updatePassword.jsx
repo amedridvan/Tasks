@@ -107,6 +107,11 @@ import Swal from 'sweetalert2'
                  Sumbit
                 </button>
 </form>
+<div className="text-sm flex justify-center mt-2">
+                    <a href="/" className="font-semibold text-indigo-600 hover:text-indigo-500">
+                     Sigin in
+                    </a>
+                  </div>
      </div>
        </div>
        </>
