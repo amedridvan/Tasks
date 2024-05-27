@@ -6,6 +6,7 @@ import A11 from './Component/Login/updatePassword'
 import Home  from "./Component/Home/Home"
 function App() {
   return (  
+    <div className=" bg-slate-200">
     <BrowserRouter >
    <Routes>
     <Route >
@@ -19,6 +20,7 @@ function App() {
     </Route>
    </Routes>
     </BrowserRouter>
+    </div>
   );
 }
 
