@@ -19,7 +19,7 @@ function Menu(){
   // Array containing navigation items
   const navItems = [
     { id: 1, text: 'Home' },
-    { id: 2, text: 'AddTask' },
+    { id: 2, text: 'Profile' },
     { id: 3, text: 'UpdatePass' },
   ];
   return (

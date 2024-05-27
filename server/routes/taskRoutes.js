@@ -6,6 +6,9 @@ const taskController =require ("../controllers/taskController.js");
 router
 .route("/addTask").
 post(taskController.addTask);
+router
+.route("/updatestate/:id")
+.patch(taskController.updataTaskState)
 
 router
 .route("/")
